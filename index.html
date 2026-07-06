@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexusX Get Key</title>
+
+<style>
+body{
+background:#111;
+color:white;
+font-family:Arial,sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+margin:0;
+}
+
+.box{
+background:#1d1d1d;
+padding:25px;
+border-radius:15px;
+width:90%;
+max-width:400px;
+text-align:center;
+}
+
+h1{
+color:#00c3ff;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:15px;
+border:none;
+border-radius:10px;
+background:#00c3ff;
+color:white;
+font-size:18px;
+}
+
+#start,#key{
+display:none;
+}
+
+#timer{
+margin-top:20px;
+font-size:22px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>NexusX Get Key</h1>
+
+<p>Completa los pasos para obtener tu Key.</p>
+
+<button id="tiktok">📱 Abrir TikTok</button>
+
+<button id="telegram">✈️ Abrir Telegram</button>
+
+<button id="start">✅ Iniciar verificación</button>
+
+<div id="timer"></div>
+
+<div id="key"></div> <script>
+
+let tiktok=false;
+let telegram=false;
+
+document.getElementById("tiktok").onclick=function(){
+
+tiktok=true;
+
+window.open("https://www.tiktok.com/@soyalexfuentes4","_blank");
+
+comprobar();
+
+}
+
+document.getElementById("telegram").onclick=function(){
+
+telegram=true;
+
+window.open("https://t.me/+uUxWsUje-TI4NzZh","_blank");
+
+comprobar();
+
+}
+
+function comprobar(){
+
+if(tiktok && telegram){
+
+document.getElementById("start").style.display="block";
+
+}
+
+}
+
+document.getElementById("start").onclick=function(){
+
+this.style.display="none";
+
+let tiempo=60;
+
+let intervalo=setInterval(function(){
+
+document.getElementById("timer").innerHTML="⏳ Espera "+tiempo+" segundos";
+
+tiempo--;
+
+if(tiempo<0){
+
+clearInterval(intervalo);
+
+document.getElementById("timer").innerHTML="✅ Verificación completada";
+
+document.getElementById("key").style.display="block";
+
+document.getElementById("key").innerHTML=`
+<h2>🔑 Tu KEY</h2>
+<h1>NEXUSX-2026-ABC123</h1>
+<button onclick="navigator.clipboard.writeText('NEXUSX-2026-ABC123');alert('KEY copiada');">
+📋 Copiar KEY
+</button>
+`;
+
+}
+
+},1000);
+
+}
+
+</script>
+
+</
